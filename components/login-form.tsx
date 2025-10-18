@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import { supabase } from "@/lib/supabaseClient"
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -18,7 +19,7 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
   const [name, setName] = useState("")
   const [error, setError] = useState("")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError("")
 
@@ -32,34 +33,29 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
       return
     }
 
-    const sellers = JSON.parse(localStorage.getItem("sellers") || "[]")
-
     if (isLogin) {
-      const seller = sellers.find((s: any) => s.email === email && s.password === password)
-      if (!seller) {
+      const { data, error } = await supabase.from("sellers").select("*").eq("email", email).eq("password", password).single()
+      if (error || !data) {
         setError("Email ou senha incorretos")
         return
       }
-      localStorage.setItem("seller", JSON.stringify(seller))
-      onLoginSuccess(seller)
+      onLoginSuccess(data)
+
     } else {
-      if (sellers.some((s: any) => s.email === email)) {
+      const { data: existingSeller, error: existingSellerError } = await supabase.from("sellers").select("*").eq("email", email).single()
+      if (existingSeller) {
         setError("Email já cadastrado")
         return
       }
 
-      const newSeller = {
-        id: Date.now().toString(),
-        name,
-        email,
-        password,
-        createdAt: new Date().toISOString(),
+      const { data: newSeller, error } = await supabase.from("sellers").insert([{ name, email, password }]).select().single()
+      if (error || !newSeller) {
+        console.error("Error creating seller:", error)
+        setError("Erro ao cadastrar. Tente novamente.")
+        return
       }
-
-      sellers.push(newSeller)
-      localStorage.setItem("sellers", JSON.stringify(sellers))
-      localStorage.setItem("seller", JSON.stringify(newSeller))
       onLoginSuccess(newSeller)
+
     }
   }
 
@@ -123,3 +119,4 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
     </div>
   )
 }
+
