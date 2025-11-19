@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: sass-de-vendas
+    env: node
+    plan: free
+    buildCommand: pnpm install && pnpm build && pnpm db:push
+    startCommand: pnpm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: sass-de-vendas-db
+          property: connectionString
+      - key: VITE_APP_TITLE
+        value: SaaS Vendas
+      - key: VITE_APP_LOGO
+        value: https://placehold.co/128x128/2563EB/FFFFFF?text=SV
+
+databases:
+  - name: sass-de-vendas-db
+    engine: mysql
+    plan: free
+    version: "8.0"
