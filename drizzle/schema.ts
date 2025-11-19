@@ -25,4 +25,40 @@ export const users = mysqlTable("users", {
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
 
-// TODO: Add your tables here
+/**
+ * Plans table - Stores subscription plans
+ */
+export const plans = mysqlTable("plans", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 64 }).notNull(),
+  description: text("description"),
+  priceMonthly: int("priceMonthly").notNull(), // em centavos (4500 = R$ 45,00)
+  priceAnnual: int("priceAnnual").notNull(), // em centavos (32000 = R$ 320,00)
+  features: text("features").notNull(), // JSON array of features
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Plan = typeof plans.$inferSelect;
+export type InsertPlan = typeof plans.$inferInsert;
+
+/**
+ * Subscriptions table - Stores user subscriptions
+ */
+export const subscriptions = mysqlTable("subscriptions", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  planId: int("planId").notNull(),
+  status: mysqlEnum("status", ["trial", "active", "cancelled", "expired"]).default("trial").notNull(),
+  billingCycle: mysqlEnum("billingCycle", ["monthly", "annual"]).notNull(),
+  trialStartDate: timestamp("trialStartDate").notNull(),
+  trialEndDate: timestamp("trialEndDate").notNull(),
+  startDate: timestamp("startDate"),
+  endDate: timestamp("endDate"),
+  cancelledAt: timestamp("cancelledAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Subscription = typeof subscriptions.$inferSelect;
+export type InsertSubscription = typeof subscriptions.$inferInsert;
