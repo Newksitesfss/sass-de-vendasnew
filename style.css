@@ -83,8 +83,8 @@ h1, h2, h3, h4 {
 }
 
 .btn-whatsapp-lg {
-    padding: 15px 35px;
-    font-size: 1.3em;
+    padding: 12px 25px; /* Reduzido de 15px 35px */
+    font-size: 1.1em; /* Reduzido de 1.3em */
 }
 
 
