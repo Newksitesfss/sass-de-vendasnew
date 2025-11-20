@@ -1,0 +1,355 @@
+/* Variáveis CSS */
+:root {
+    --primary-color: #007bff; /* Azul vibrante */
+    --secondary-color: #6c757d; /* Cinza para detalhes */
+    --background-light: #f8f9fa; /* Fundo claro */
+    --background-dark: #343a40; /* Fundo escuro */
+    --text-dark: #212529; /* Texto principal escuro */
+    --text-light: #ffffff; /* Texto claro */
+    --whatsapp-color: #25d366; /* Cor do WhatsApp */
+    --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Botões */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-whatsapp, .btn-whatsapp-lg {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--whatsapp-color);
+    color: var(--text-light);
+    padding: 8px 15px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-whatsapp:hover, .btn-whatsapp-lg:hover {
+    background-color: #1da851;
+}
+
+.btn-whatsapp i, .btn-whatsapp-lg i {
+    margin-right: 8px;
+    font-size: 1.2em;
+}
+
+.btn-whatsapp-lg {
+    padding: 15px 30px;
+    font-size: 1.2em;
+}
+
+/* Header */
+.header {
+    background-color: var(--text-light);
+    box-shadow: var(--shadow-light);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    color: var(--primary-color);
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.nav ul li {
+    margin-left: 25px;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--background-light);
+    padding: 80px 0;
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: var(--shadow-light);
+}
+
+/* Seções Gerais */
+section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+section h3 {
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: var(--text-dark);
+}
+
+/* Serviços Section */
+.servicos {
+    background-color: var(--text-light);
+}
+
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.servico-card {
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    background-color: var(--background-light);
+    transition: transform 0.3s ease;
+}
+
+.servico-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.servico-card .icon-large {
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.servico-card h4 {
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+/* Portfólio Section */
+.portfolio {
+    background-color: var(--background-light);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.portfolio-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    text-align: left;
+    background-color: var(--text-light);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.portfolio-item .item-info {
+    padding: 15px;
+}
+
+.portfolio-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+/* Contato Section */
+.contato {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 80px 0;
+}
+
+.contato h3 {
+    color: var(--text-light);
+}
+
+.contato p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--background-dark);
+    color: var(--secondary-color);
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.footer .credits {
+    margin-top: 10px;
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+/* Pop-up de Aviso */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-content {
+    background-color: var(--text-light);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.popup-overlay.active .popup-content {
+    transform: scale(1);
+}
+
+.popup-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.popup-content p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav ul {
+        margin: 10px 0;
+        justify-content: center;
+    }
+
+    .nav ul li {
+        margin: 0 10px;
+    }
+
+    .btn-whatsapp {
+        margin-top: 10px;
+    }
+
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content h2 {
+        font-size: 2em;
+    }
+
+    .hero-image {
+        margin-top: 30px;
+    }
+
+    .servicos-grid, .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
