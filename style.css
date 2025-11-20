@@ -1,17 +1,17 @@
-/* Variáveis CSS */
+
 :root {
-    --primary-color: #007bff; /* Azul vibrante da Cria Tech */
-    --secondary-color: #ffc107; /* Amarelo/Dourado para destaque (Inspiração Ultra Cell) */
-    --background-light: #121212; /* Fundo escuro (Inspiração Ultra Cell/Barber) */
-    --background-dark: #000000; /* Fundo mais escuro */
-    --text-dark: #e0e0e0; /* Texto principal claro */
-    --text-light: #ffffff; /* Texto claro */
-    --whatsapp-color: #25d366; /* Cor do WhatsApp */
+    --primary-color: #007bff; 
+    --secondary-color: #ffc107; 
+    --background-light: #121212; 
+    --background-dark: #000000; 
+    --text-dark: #e0e0e0; 
+    --text-light: #ffffff; 
+    --whatsapp-color: #25d366; 
     --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.5);
     --card-bg: #1e1e1e;
 }
 
-/* Reset Básico */
+
 * {
     margin: 0;
     padding: 0;
@@ -32,13 +32,13 @@ body {
     padding: 0 15px;
 }
 
-/* Tipografia */
+
 h1, h2, h3, h4 {
     font-weight: bold;
     color: var(--text-light);
 }
 
-/* Botões */
+
 .btn-primary {
     display: inline-block;
     background-color: var(--primary-color);
@@ -87,7 +87,7 @@ h1, h2, h3, h4 {
     font-size: 1.3em;
 }
 
-/* Header */
+
 .header {
     background-color: var(--background-dark);
     box-shadow: var(--shadow-light);
@@ -105,7 +105,7 @@ h1, h2, h3, h4 {
 
 .logo {
     font-size: 2em;
-    color: var(--secondary-color); /* Destaque na logo */
+    color: var(--secondary-color); 
 }
 
 .nav ul {
@@ -148,7 +148,7 @@ h1, h2, h3, h4 {
     background: var(--primary-color);
 }
 
-/* Hero Section */
+
 .hero {
     background-color: var(--background-dark);
     padding: 100px 0;
@@ -194,10 +194,10 @@ h1, h2, h3, h4 {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
-    box-shadow: 0 0 30px rgba(0, 123, 255, 0.3); /* Sombra azul para destaque */
+    box-shadow: 0 0 30px rgba(0, 123, 255, 0.3); 
 }
 
-/* Seções Gerais */
+
 section {
     padding: 80px 0;
     text-align: center;
@@ -219,7 +219,7 @@ section h3 {
     letter-spacing: 2px;
 }
 
-/* Serviços Section */
+
 .servicos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -259,7 +259,7 @@ section h3 {
     color: var(--text-dark);
 }
 
-/* Portfólio Section */
+
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -301,7 +301,7 @@ section h3 {
     color: var(--text-dark);
 }
 
-/* Contato Section */
+
 .contato {
     background-color: var(--primary-color);
     color: var(--text-light);
@@ -319,7 +319,7 @@ section h3 {
     font-weight: 300;
 }
 
-/* Footer */
+
 .footer {
     background-color: var(--background-dark);
     color: var(--secondary-color);
@@ -339,7 +339,7 @@ section h3 {
     color: var(--primary-color);
 }
 
-/* Pop-up de Aviso */
+
 .popup-overlay {
     position: fixed;
     top: 0;
@@ -389,7 +389,7 @@ section h3 {
     color: var(--text-dark);
 }
 
-/* Responsividade */
+
 @media (max-width: 992px) {
     .hero .container {
         flex-direction: column;

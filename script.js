@@ -1,20 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
     const popup = document.getElementById('demo-popup');
     const closeButton = document.getElementById('close-popup');
-    const hasSeenPopup = localStorage.getItem('hasSeenDemoPopup');
+    // const hasSeenPopup = localStorage.getItem('hasSeenDemoPopup'); // Removido para exibir em toda visita
 
     // 1. Lógica do Pop-up de Demonstração
-    if (!hasSeenPopup) {
-        // Exibe o pop-up se o usuário nunca o viu
-        setTimeout(() => {
-            popup.classList.add('active');
-        }, 1000); // Pequeno atraso para garantir que a página carregue
-    }
+    // Exibe o pop-up em toda visita
+    setTimeout(() => {
+        popup.classList.add('active');
+    }, 1000); // Pequeno atraso para garantir que a página carregue
 
     // Função para fechar o pop-up
     function closePopup() {
         popup.classList.remove('active');
-        localStorage.setItem('hasSeenDemoPopup', 'true'); // Marca que o usuário viu
     }
 
     // Fecha ao clicar no botão
